@@ -1,0 +1,1522 @@
+/* ==========================================================================
+   KRISHNA KRIPA — BHAGAVAD GITA ATTENDANCE MANAGEMENT
+   Design System & Core Devotional Styling
+   ========================================================================== */
+
+:root {
+  /* Exact Specified Design Palette */
+  --gold: #FFD700;
+  --gold-light: #FFE55C;
+  --gold-dark: #C69214;
+  --gold-border: rgba(255, 215, 0, 0.38);
+  --gold-glow: rgba(255, 215, 0, 0.2);
+
+  --saffron: #FF9933;
+  --saffron-hover: #E68019;
+  --saffron-light: #FFF0E0;
+
+  --cream: #FFF8DC;
+  --cream-soft: #FBF7ED;
+  --cream-surface: #FAF5E8;
+  --cream-border: #EFE4CE;
+
+  --forest-green: #1B4332;
+  --forest-green-light: #2D6A4F;
+  --forest-green-dark: #081C15;
+
+  --warm-brown: #8B4513;
+  --warm-brown-dark: #5C2D0C;
+  --warm-brown-light: #A0522D;
+
+  --white: #FFFFFF;
+  --text-primary: #303030;
+  --text-secondary: #666666;
+  --text-muted: #888888;
+  
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.18);
+  --shadow-gold: 0 4px 18px rgba(255, 215, 0, 0.25);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--forest-green);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root, .devotional-bg-root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   MANDATORY CRITICAL REQUIREMENT:
+   Background Image + Exact Gradient Overlay
+   ========================================================================== */
+.devotional-fixed-bg {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-image: var(--devotional-bg-full, linear-gradient(135deg, rgba(27, 67, 50, 0.92) 0%, rgba(139, 69, 19, 0.88) 100%), url("https://images.unsplash.com/photo-1641730259879-ad98e7db7bcb?crop=entropy&cs=srgb&fm=jpg&q=85"));
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  z-index: -9999;
+  pointer-events: none;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.devotional-bg-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.devotional-bg-root::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-image: var(--devotional-bg-full, linear-gradient(135deg, rgba(27, 67, 50, 0.92) 0%, rgba(139, 69, 19, 0.88) 100%), url("https://images.unsplash.com/photo-1641730259879-ad98e7db7bcb?crop=entropy&cs=srgb&fm=jpg&q=85"));
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Devotional Typography */
+.font-cinzel {
+  font-family: var(--font-heading);
+}
+
+.heading-gold {
+  font-family: var(--font-heading);
+  color: var(--gold);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.05em;
+}
+
+.subheading-cream {
+  color: var(--cream);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Devotional Card Surfaces (Readable Light/Cream surfaces) */
+.devotional-card {
+  background: var(--white);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.devotional-card:hover {
+  border-color: rgba(255, 215, 0, 0.6);
+}
+
+.devotional-card-cream {
+  background: var(--cream-soft);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Devotional Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, #FFD700 0%, #E6AF00 100%);
+  color: #2D1A00;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: 1px solid #D4AF37;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #FFE033 0%, #FFC800 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.45);
+}
+
+.btn-saffron {
+  background: linear-gradient(135deg, #FF9933 0%, #E67A10 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: 1px solid rgba(255, 153, 51, 0.5);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(255, 153, 51, 0.3);
+}
+
+.btn-saffron:hover {
+  background: linear-gradient(135deg, #FFAE4D 0%, #F5841A 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 153, 51, 0.45);
+}
+
+.btn-outline-gold {
+  background: rgba(255, 215, 0, 0.08);
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(255, 215, 0, 0.18);
+  border-color: #FFF066;
+  color: #FFF066;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid #D8D2C2;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-ghost:hover {
+  background: #F3ECE0;
+  color: var(--text-primary);
+}
+
+/* Badges */
+.badge-present {
+  background: #D8F3DC;
+  color: #1B4332;
+  border: 1px solid #95D5B2;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-absent {
+  background: #FFE5D9;
+  color: #9D0208;
+  border: 1px solid #F4A261;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-gold {
+  background: #FFF9DB;
+  color: #7A5700;
+  border: 1px solid #FFE066;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge-weekend {
+  background: #FFF0E0;
+  color: #8B4513;
+  border: 1px solid #FFCC99;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Form inputs */
+.form-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #D0C6B0;
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4A4A4A;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(27, 67, 50, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 215, 0, 0.7);
+}
+
+/* Print Rules */
+@media print {
+  body {
+    background: #FFF !important;
+    color: #000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Responsive Navigation & Display Utilities (Pure Vanilla CSS) */
+.nav-desktop-links {
+  display: flex !important;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-desktop-actions {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px;
+}
+
+.nav-mobile-toggle {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .nav-desktop-links {
+    display: none !important;
+  }
+  .nav-desktop-actions {
+    display: none !important;
+  }
+  .nav-mobile-toggle {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* Translucent Glass Surfaces */
+.glass-panel-header {
+  background: rgba(27, 67, 50, 0.82) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.35) !important;
+}
+
+/* ==========================================================================
+   MOBILE & PHONE OPTIMIZATIONS (Smart Responsive Design System)
+   Strictly scoped to <=768px: Laptop and Desktop (>768px) remain 100% untouched.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  html, body {
+    font-size: 15px;
+  }
+
+  /* Landing Page Background Layer on Mobile */
+  .landing-page-root {
+    position: relative !important;
+    isolation: isolate !important;
+    background: transparent !important;
+  }
+
+  /* Landing Header & Brand Alignment */
+  .landing-header {
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  .landing-header-container {
+    gap: 0.35rem !important;
+  }
+
+  .nav-brand-container {
+    gap: 6px !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .nav-brand-logo-wrap {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .nav-brand-logo-wrap img,
+  .nav-brand-logo-wrap svg {
+    height: 36px !important;
+    max-height: 38px !important;
+    width: auto !important;
+    max-width: 70px !important;
+    object-fit: contain !important;
+  }
+
+  .nav-brand-text-wrap {
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+  }
+
+  .nav-brand-title {
+    font-size: clamp(0.85rem, 3.4vw, 1.05rem) !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.15 !important;
+    color: #FFD700 !important;
+  }
+
+  .nav-brand-subtitle {
+    display: none !important;
+  }
+
+  .nav-mobile-toggle {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-mobile-student-btn {
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.72rem !important;
+    border-radius: 6px !important;
+    gap: 3px !important;
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .nav-mobile-menu-btn {
+    padding: 0.35rem !important;
+    border-radius: 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Landing Page Section & Card Responsive Spacing */
+  .landing-section-hero {
+    padding: 2.25rem 1rem 1.75rem !important;
+    text-align: center !important;
+  }
+
+  .hero-badge {
+    margin-bottom: 0.9rem !important;
+    font-size: 0.75rem !important;
+    padding: 0.28rem 0.95rem !important;
+  }
+
+  .landing-section {
+    padding: 0 0.85rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .landing-card {
+    padding: 1.35rem 1rem !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .landing-card-dark {
+    padding: 1.35rem 1rem !important;
+    border-radius: 16px !important;
+  }
+
+  .landing-footer {
+    padding: 2rem 1rem 1.5rem !important;
+  }
+
+  /* Responsive Fluid Headings */
+  .hero-heading {
+    font-size: clamp(1.6rem, 6.2vw, 2.15rem) !important;
+    line-height: 1.22 !important;
+    margin-bottom: 0.75rem !important;
+    word-break: break-word !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 3.2vw, 1.05rem) !important;
+    line-height: 1.55 !important;
+    margin: 0 auto 1.5rem !important;
+    max-width: 480px !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .section-heading {
+    font-size: clamp(1.35rem, 5.2vw, 1.8rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .section-subheading {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Full Width Stacked CTAs on Mobile */
+  .hero-cta-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    gap: 0.75rem !important;
+  }
+
+  .hero-cta-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.85rem 1.25rem !important;
+    font-size: 0.94rem !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  /* Weekly Class Status Card Header & Elements */
+  .class-status-title {
+    font-size: clamp(1.25rem, 5vw, 1.55rem) !important;
+    line-height: 1.25 !important;
+    margin: 4px 0 6px !important;
+  }
+
+  .class-status-subtitle {
+    font-size: 0.86rem !important;
+    line-height: 1.45 !important;
+    margin-bottom: 1.15rem !important;
+  }
+
+  .class-status-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .class-status-time-badge {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-top: 0.25rem !important;
+    padding: 0.65rem 1rem !important;
+    border-radius: 8px !important;
+  }
+
+  .status-box-inner {
+    padding: 1.1rem 0.9rem !important;
+    gap: 10px !important;
+    border-radius: 12px !important;
+  }
+
+  .status-box-inner h3 {
+    font-size: 1.05rem !important;
+    margin-bottom: 4px !important;
+    line-height: 1.3 !important;
+  }
+
+  .status-box-inner p {
+    font-size: 0.86rem !important;
+    line-height: 1.48 !important;
+  }
+
+  /* Janmashtami Leaderboard */
+  .leaderboard-section-title {
+    font-size: clamp(1.35rem, 5.2vw, 1.75rem) !important;
+    line-height: 1.25 !important;
+    margin: 6px 0 8px !important;
+  }
+
+  .leaderboard-section-desc {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .leaderboard-date-badge {
+    font-size: 0.78rem !important;
+    padding: 4px 10px !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+  }
+
+  .leaderboard-privacy-banner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 0.75rem !important;
+    padding: 0.75rem 0.85rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  /* Janmashtami Leaderboard Podium: 1st Place on Top on Mobile */
+  .podium-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .podium-first {
+    order: 1 !important;
+    transform: none !important;
+    width: 100% !important;
+    padding: 1.35rem 1rem !important;
+    border-radius: 14px !important;
+  }
+
+  .podium-second {
+    order: 2 !important;
+    width: 100% !important;
+    padding: 1.25rem 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  .podium-third {
+    order: 3 !important;
+    width: 100% !important;
+    padding: 1.25rem 1rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* Extended Table Touch Scrolling on Phones */
+  .mobile-table-scroll {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 -0.5rem 1.25rem !important;
+    padding: 0.5rem !important;
+    border-radius: 10px !important;
+  }
+
+  .mobile-table-scroll table {
+    min-width: 480px !important;
+  }
+
+  /* 3 Pillars Grid on Mobile */
+  .pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-top: 1.25rem !important;
+  }
+
+  .pillars-grid > div {
+    padding: 1.2rem 1rem !important;
+  }
+
+  /* Scripture Card Header on Mobile */
+  .scripture-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.35rem !important;
+    margin-bottom: 0.85rem !important;
+  }
+
+  .scripture-card {
+    padding: 1.15rem 0.95rem !important;
+  }
+
+  .scripture-verse {
+    font-size: 1.02rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .scripture-translation {
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Maha Mantra Footer Banner & Links */
+  .mantra-banner {
+    padding: 0.65rem 0.85rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1.45 !important;
+    border-radius: 14px !important;
+  }
+
+  .footer-bottom-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-align: center !important;
+  }
+
+  /* Navigation Ribbon on Phone (Smooth touch scroll) */
+  .nav-tabs-ribbon {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    padding-bottom: 4px !important;
+  }
+  .nav-tabs-ribbon::-webkit-scrollbar {
+    display: none !important;
+  }
+  .nav-tabs-ribbon button {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Auth Modals on Mobile */
+  .auth-page-wrapper {
+    padding: 0.75rem !important;
+  }
+
+  .auth-modal-card {
+    border-radius: 14px !important;
+    margin: 0.5rem auto !important;
+    max-width: 100% !important;
+  }
+
+  .auth-header-pad {
+    padding: 1.5rem 1.1rem 1.2rem !important;
+  }
+
+  /* Hide / Show Utilities */
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .show-on-mobile {
+    display: block !important;
+  }
+
+  /* =========================================================
+     STUDENT PORTAL MOBILE DASHBOARD REFINEMENTS
+     (Strictly scoped to <=768px: Laptop remains 100% untouched)
+     ========================================================= */
+  .student-portal-header {
+    padding: 0.85rem 1rem !important;
+    gap: 0.65rem !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .student-portal-header-left {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding-right: 92px !important; /* Space for the top-right Sign Out button */
+    position: relative !important;
+  }
+
+  .student-portal-header-crest {
+    flex-shrink: 0 !important;
+  }
+
+  .student-portal-header-crest img,
+  .student-portal-header-crest svg {
+    height: 38px !important;
+    width: 38px !important;
+  }
+
+  .student-portal-header-left h1 {
+    font-size: 1.15rem !important;
+    line-height: 1.25 !important;
+    margin: 0 !important;
+    word-break: break-word !important;
+  }
+
+  .student-portal-header-left p {
+    font-size: 0.74rem !important;
+    margin-top: 3px !important;
+    line-height: 1.35 !important;
+    color: #555 !important;
+  }
+
+  .student-portal-header-right {
+    position: absolute !important;
+    top: 0.85rem !important;
+    right: 0.85rem !important;
+  }
+
+  .student-portal-header-right button {
+    padding: 0.32rem 0.65rem !important;
+    font-size: 0.76rem !important;
+    border-radius: 6px !important;
+    gap: 4px !important;
+  }
+
+  /* Compact Tabs on Mobile */
+  .student-portal-tabs {
+    gap: 0.45rem !important;
+    padding: 0.35rem !important;
+  }
+
+  .student-portal-tabs button {
+    padding: 0.52rem 0.6rem !important;
+    font-size: 0.78rem !important;
+    gap: 0.35rem !important;
+  }
+
+  /* Compact ID Card Promo Banner on Mobile */
+  .student-id-promo-banner {
+    padding: 0.85rem 1rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  .student-id-promo-banner button {
+    width: 100% !important;
+    padding: 0.55rem !important;
+    font-size: 0.82rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Responsive 2-Column Grid for Stats on Mobile Phones */
+  .student-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+  }
+
+  /* Overall Attendance card spans both columns */
+  .student-stat-card-main {
+    grid-column: span 2 !important;
+    padding: 0.95rem 1rem !important;
+  }
+
+  .student-stat-card {
+    padding: 0.8rem 0.75rem !important;
+    border-radius: 12px !important;
+  }
+
+  .student-stat-card > div:first-child {
+    font-size: 0.74rem !important;
+    line-height: 1.2 !important;
+    color: #666 !important;
+    font-weight: 600 !important;
+  }
+
+  .student-stat-card > div:nth-child(2) {
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
+    margin-top: 2px !important;
+    line-height: 1.1 !important;
+  }
+
+  .student-stat-card > div:nth-child(3) {
+    font-size: 0.68rem !important;
+    margin-top: 2px !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* Specific micro-phone breakpoint for narrow viewports (<480px, like 360px - 412px Android) */
+@media (max-width: 480px) {
+  .landing-header {
+    padding: 0.45rem 0.65rem !important;
+  }
+  .nav-brand-container {
+    gap: 6px !important;
+  }
+  .nav-brand-logo-wrap img,
+  .nav-brand-logo-wrap svg {
+    height: var(--header-logo-height, 44px);
+    max-height: var(--header-logo-height, 46px);
+    max-width: 100px;
+  }
+  .nav-brand-title {
+    font-size: clamp(0.85rem, 3.6vw, 1.05rem) !important;
+  }
+  .nav-brand-subtitle {
+    display: none !important; /* Prevents overflow that crunches KRISHNA KRIPA into KR... */
+  }
+  .nav-mobile-toggle {
+    gap: 5px !important;
+  }
+  .nav-mobile-student-btn {
+    padding: 0.32rem 0.5rem !important;
+    font-size: 0.72rem !important;
+  }
+  .nav-mobile-menu-btn {
+    padding: 0.32rem !important;
+  }
+}
+
+/* Extra small devices (<360px) */
+@media (max-width: 360px) {
+  .landing-section {
+    padding: 0 0.55rem !important;
+  }
+  .landing-card,
+  .landing-card-dark {
+    padding: 1.15rem 0.75rem !important;
+  }
+  .nav-brand-logo-wrap img,
+  .nav-brand-logo-wrap svg {
+    height: var(--header-logo-height, 40px);
+    max-height: var(--header-logo-height, 42px);
+    max-width: 85px;
+  }
+  .nav-brand-title {
+    font-size: 0.82rem !important;
+  }
+  .nav-mobile-student-btn span {
+    display: none !important; /* Icon-only on extreme narrow devices */
+  }
+  .nav-mobile-student-btn {
+    padding: 0.35rem !important;
+  }
+}
+
+/* ==========================================================================
+   General Mobile Layout & Calendar Responsive Utilities
+   ========================================================================== */
+.app-main-content {
+  flex: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 3.5rem;
+}
+
+@media (max-width: 768px) {
+  .app-main-content {
+    padding: 0.85rem 0.65rem 3rem !important;
+  }
+}
+
+.calendar-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+}
+
+.calendar-grid-min {
+  min-width: 620px;
+}
+
+@media (max-width: 640px) {
+  .calendar-scroll-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: thin !important;
+  }
+  .mobile-swipe-indicator {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .mobile-swipe-indicator {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Student Calendar Desktop & Mobile-Only Theme Styles
+   ========================================================================== */
+.student-calendar-container {
+  width: 100%;
+}
+
+/* DESKTOP / LAPTOP STYLES (Kept completely clean & spacious for laptop) */
+.student-calendar-desktop-card {
+  display: block;
+  background: #FFFDF8;
+  border: 1.5px solid #EADDC8;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.cal-desktop-grid-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background: #FAF5E8;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #EADDC8;
+}
+
+.cal-desktop-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: #EADDC8;
+  border: 1px solid #EADDC8;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+.cal-desktop-cell {
+  background: #FFFFFF;
+  min-height: 95px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cal-desktop-cell:hover {
+  background: #FCFAF5;
+}
+
+.cal-desktop-cell.out-month {
+  background: #F8F7F3;
+  opacity: 0.55;
+}
+
+.cal-desktop-cell.today {
+  background: #FFFDF0;
+  border: 1.5px solid #FFD700;
+}
+
+.cal-desktop-cell.selected {
+  background: #F0FDF4;
+  border: 2px solid #2D6A4F;
+}
+
+.cal-desktop-event.conducted {
+  background: #DCFCE7;
+  color: #166534;
+  font-size: 0.72rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cal-desktop-event.scheduled {
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 0.72rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Hide mobile card on desktop/laptop */
+.student-calendar-mobile-card {
+  display: none;
+}
+
+/* ==========================================================================
+   MOBILE-ONLY CALENDAR (Exact match to reference dark emerald/gold widget)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .student-calendar-desktop-card {
+    display: none !important;
+  }
+
+  .student-calendar-mobile-card {
+    display: block !important;
+    background: #18231C;
+    border-radius: 16px;
+    padding: 1.1rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    color: #F0F4F2;
+  }
+
+  .cal-mobile-top-header {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 0.85rem;
+  }
+
+  .cal-mobile-badge-box {
+    background: #111A14;
+    border: 1.5px solid #D4AF37;
+    border-radius: 10px;
+    padding: 8px 12px;
+    text-align: center;
+    min-width: 68px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .cal-mobile-badge-day {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #FFD700;
+    letter-spacing: 0.5px;
+  }
+
+  .cal-mobile-badge-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-top: 2px;
+    font-family: var(--font-heading);
+  }
+
+  .cal-mobile-header-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cal-mobile-month-year {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0 0 2px 0;
+    font-family: var(--font-heading);
+  }
+
+  .cal-mobile-meta-line {
+    font-size: 0.78rem;
+    color: #9EBAAB;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cal-mobile-today-chip {
+    background: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+    border: 1px solid #FFD700;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 10px;
+  }
+
+  .cal-mobile-subtitle {
+    font-size: 0.76rem;
+    color: #C2D6CC;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cal-mobile-controls {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 0.85rem;
+  }
+
+  .cal-mobile-select {
+    flex: 1;
+    background: #202D24;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .cal-mobile-today-btn {
+    background: #202D24;
+    color: #FFD700;
+    border: 1px solid #D4AF37;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .cal-mobile-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #8BA899;
+    margin-bottom: 6px;
+  }
+
+  .cal-mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+    margin-bottom: 0.85rem;
+  }
+
+  .cal-mobile-cell {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .cal-mobile-cell.in-month {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .cal-mobile-cell.out-month {
+    color: #556B60;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+
+  .cal-mobile-cell.selected {
+    border: 2px solid #FFD700 !important;
+    background: rgba(255, 215, 0, 0.15);
+  }
+
+  .cal-mobile-dot {
+    width: 5px;
+    height: 5px;
+    background: #F59E0B;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    box-shadow: 0 0 6px #F59E0B;
+  }
+
+  .cal-mobile-day-card {
+    background: #111A14;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 10px;
+    padding: 0.75rem 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .cal-badge-conducted {
+    background: #064E3B;
+    color: #34D399;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .cal-badge-planned {
+    background: #1E3A8A;
+    color: #93C5FD;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .cal-badge-weekend {
+    background: #78350F;
+    color: #FCD34D;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+
+  .cal-badge-weekday {
+    background: #1F2937;
+    color: #9CA3AF;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 6px;
+  }
+}
+
+/* Default Tab labels (Desktop/Laptop) */
+.tab-label-short {
+  display: none;
+}
+.tab-label-full {
+  display: inline;
+}
+
+/* ==========================================================================
+   MOBILE-ONLY REFINEMENTS FOR STUDENT PORTAL & HEADER (MAX-WIDTH: 768PX)
+   Preserves laptop/desktop 100% untouched
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Prevent any horizontal screen blowing */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  .devotional-bg-root {
+    padding: 0.5rem !important;
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Student Portal Header */
+  .student-portal-header {
+    padding: 0.85rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+  }
+
+  .student-portal-header-left {
+    width: 100% !important;
+    gap: 10px !important;
+    min-width: 0 !important;
+  }
+
+  .student-portal-header-left h1 {
+    font-size: 1.15rem !important;
+    word-break: break-word !important;
+  }
+
+  .student-portal-header-right {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
+
+  /* Responsive tab labels */
+  .tab-label-short {
+    display: inline !important;
+  }
+  .tab-label-full {
+    display: none !important;
+  }
+
+  /* Student Portal Tab Bar - Perfect 3-column equal fit */
+  .student-portal-tabs {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 0.35rem !important;
+    padding: 0.35rem !important;
+    overflow-x: hidden !important;
+  }
+
+  .student-portal-tabs button {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    width: 0 !important;
+    white-space: nowrap !important;
+    padding: 0.55rem 0.25rem !important;
+    font-size: 0.78rem !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ID Card Promo Banner on mobile */
+  .student-id-promo-banner {
+    padding: 0.85rem !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .student-id-promo-banner button {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Student Stats Grid - Clean responsive columns on mobile */
+  .student-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .student-stat-card {
+    padding: 0.85rem !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .student-stat-card-main {
+    grid-column: span 2 !important;
+  }
+
+  /* Janmashtami Countdown container on mobile */
+  .devotional-card {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ensure inputs and chat containers don't overflow */
+  .devotional-input, 
+  .devotional-card input,
+  .devotional-card textarea {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Printable ID Card Node on mobile */
+  .printable-id-card-node {
+    width: 100% !important;
+    max-width: min(340px, calc(100vw - 1.5rem)) !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+  }
+
+  /* ID Card Action Buttons on mobile */
+  .id-card-actions-section,
+  .action-buttons-group {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .action-buttons-group > div,
+  .id-card-actions-section > div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .action-buttons-group button {
+    flex: 1 1 135px !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.8rem !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,17 @@
+{
+  "short_name": "Krishna Kripa",
+  "name": "Krishna Kripa — Bhagavad Gita Attendance Management",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#1B4332",
+  "theme_color": "#1B4332",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "description": "Mobile-first Bhagavad Gita attendance management and scriptural Q&A assistant for Saturday and Sunday classes."
+}
